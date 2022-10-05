@@ -1,0 +1,76 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div style="text-align:center; background-color:white" class="text-center">
+
+    <h1 class="display-4">All Tickets</h1>
+
+    <div style="margin-left:15%; margin-right: 15%; display: flex; align-content: center; background-color:white;">
+    
+        <table class="table table-bordered table-sm table-striped">
+
+            <thead><!-- table head -->
+                <tr>
+                    <th>ID</th>
+                    <th>Ticket Title</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Submitted By</th>
+                    <th>Reported On</th>
+                    <th>Active</th>
+                    <th>DOTS Contact</th>
+                    <th>Response</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- table body -->
+                <!-- if there is no model, display 'No Model' -->
+                @if (Model == null)
+                {
+                    <tr>
+                        <td colspan="7" class="text-center">No Model</td>
+                    </tr>
+                }
+                else
+                {   
+                    <!-- if there is a model, display each record in table body -->
+                    @foreach (var p in Model.tix)
+                    {
+                        <tr>
+                            <td>@p.Ticket_ID</td>
+                            <td>@p.Ticket_Title</td>
+                            <td>@p.Ticket_Desc</td>
+                            <td>@p.Category</td>
+                            <td>@p.Reporting_Email</td>
+                            <td>@p.Orig_Date</td>
+                            @{
+                                <!-- if Active is equal to true -->
+                                if (p.Active == true) 
+                                {
+                                    <!-- Display 'Open' in limegreen -->
+                                    <td style="color:limegreen;">Open</td>
+                                }
+                                else
+                                {
+                                    <!-- Display 'Closed' in red -->
+                                    <td style="color:red;">Closed</td>
+                                }
+                            }
+                            <td>@p.Responder_Email</td>
+                            <td style="width:100%;">@p.Responder_Notes</td>
+                        </tr>
+                    }
+                }
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

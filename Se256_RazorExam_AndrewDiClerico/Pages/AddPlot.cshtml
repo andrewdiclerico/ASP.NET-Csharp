@@ -1,0 +1,140 @@
+﻿@page
+@model Se256_RazorExam_AndrewDiClerico.Pages.AddPlotModel
+@{
+    ViewData["Title"] = "Add Plot";
+}
+
+<style>
+    span{
+        color:red;
+    }
+</style>
+
+<h1 style="text-align:center;">Add Plot</h1>
+
+<br />
+
+<div style="text-align:center;">
+
+    <form method="post">
+
+        <label>Plot Number</label>
+        <br />
+        <input type="number" asp-for="tPlot.PlotNumber" placeholder="Plot Number" />
+        <br />
+        <span asp-validation-for="tPlot.PlotNumber"></span>
+        <br />
+        <br />
+        <label>First Name</label>
+        <br />
+        <input type="text" asp-for="tPlot.FirstName" placeholder="First Name" />
+        <br />
+        <span asp-validation-for="tPlot.FirstName"></span>
+        <br />
+        <br />
+        <label>Middle Name</label>
+        <br />
+        <input type="text" asp-for="tPlot.MiddleName" placeholder="Middle Name" />
+        <br />
+        <span asp-validation-for="tPlot.MiddleName"></span>
+        <br />
+        <br />
+        <label>Last Name</label>
+        <br />
+        <input type="text" asp-for="tPlot.LastName" placeholder="Last Name" />
+        <br />
+        <span asp-validation-for="tPlot.LastName"></span>
+        <br />
+        <br />
+        <label>Date Of Birth</label>
+        <br />
+        <input type="date" asp-for="tPlot.DOB" />
+        <br />
+        <span asp-validation-for="tPlot.DOB"></span>
+        <br />
+        <br />
+        <label>Date Of Death</label>
+        <br />
+        <input type="date" asp-for="tPlot.DOD" />
+        <br />
+        <span asp-validation-for="tPlot.DOD"></span>
+        <br />
+        <br />
+        <label>Stone Condition</label>
+        <br />
+        <select asp-for="tPlot.StoneCondition">
+            <option value=""> -- Select -- </option>
+            <option value="0.5">0.5</option>
+            <option value="1.0">1.0</option>
+            <option value="1.5">1.5</option>
+            <option value="2.0">2.0</option>
+            <option value="2.5">2.5</option>
+            <option value="3.0">3.0</option>
+            <option value="3.5">3.5</option>
+            <option value="4.0">4.0</option>
+            <option value="4.5">4.5</option>
+            <option value="5.0">5.0</option>
+        </select>
+        <br />
+        <span asp-validation-for="tPlot.StoneCondition"></span>
+        <br />
+        <br />
+        <label>Plot Condition</label>
+        <br />
+        <select asp-for="tPlot.PlotCondition">
+            <option value=""> -- Select -- </option>
+            <option value="0.5">0.5</option>
+            <option value="1.0">1.0</option>
+            <option value="1.5">1.5</option>
+            <option value="2.0">2.0</option>
+            <option value="2.5">2.5</option>
+            <option value="3.0">3.0</option>
+            <option value="3.5">3.5</option>
+            <option value="4.0">4.0</option>
+            <option value="4.5">4.5</option>
+            <option value="5.0">5.0</option>
+        </select>
+        <br />
+        <span asp-validation-for="tPlot.PlotCondition"></span>
+        <br />
+        <br />
+        <label>Needs Attention</label>
+        <br />
+        <input type="checkbox" asp-for="tPlot.NeedsAttention" />
+        <br />
+        <span asp-validation-for="tPlot.NeedsAttention"></span>
+        <br />
+        <br />
+        <label>Reviewer Email</label>
+        <br />
+        <input type="text" asp-for="tPlot.RevEmail" placeholder="Reviewer Email" />
+        <br />
+        <span asp-validation-for="tPlot.RevEmail"></span>
+        <br />
+        <br />
+        <label>Date Of Last Review</label>
+        <br />
+        <input type="date" asp-for="tPlot.DOLastRev" />
+        <br />
+        <span asp-validation-for="tPlot.DOLastRev"></span>
+
+        <br />
+        <br />
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+
+</div>
+
+
+@{ 
+
+    if (Model.tPlot != null && Model.tPlot.Feedback != null)
+            {
+                <h1 style="text-align:center;">Results</h1>
+                <p style="text-align:center;">@Model.tPlot.Feedback</p>
+            }
+
+}

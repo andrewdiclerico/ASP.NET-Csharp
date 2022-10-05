@@ -1,0 +1,153 @@
+﻿@page
+@model SE256_RazorLab_AndrewDiClerico.Pages.Admin.BL_ControlPanelModel
+@{
+    ViewData["Title"] = "Backlog Control Panel";
+}
+
+<h1 style="text-align:center;">Admin Control Panel</h1>
+
+<div style="text-align:center; background-color:white" class="text-center">
+
+    <h1 class="display-4">Movies</h1>
+
+
+
+    <table class="table table-bordered table-sm table-striped">
+
+        <thead>
+            <!-- table head -->
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Title</th>
+                <th>Director</th>
+                <th>Length</th>
+                <th>Rating</th>
+                <th>Opinion</th>
+                <th>Email</th>
+                <th>Watched</th>
+                <th>Date Watched</th>
+                <th colspan="2">Admin</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- table body -->
+            <!-- if there is no model, display 'No Model' -->
+            @if (Model == null)
+            {
+                <tr>
+                    <td colspan="7" class="text-center">No Model</td>
+                </tr>
+            }
+            else
+            {
+
+                @foreach (var p in Model.mov)
+                {
+                    <tr>
+                        <td>@p.Movie_ID</td>
+                        <td>@p.User_Name</td>
+                        <td>@p.Movie_Title</td>
+                        <td>@p.Movie_Director</td>
+                        <td>@p.Movie_Length</td>
+                        <td>@p.Movie_Rating </td>
+                        <td>@p.Movie_Opinion</td>
+                        <td>@p.Movie_Email</td>
+
+                        @if (p.Movie_Watched == true)
+                        {
+                            <td>Yes</td>
+                        }
+                        else
+                        {
+                            <td>No</td>
+                        }
+
+                        <td>@p.Movie_DateWatched</td>
+
+                        <td><a asp-page="/Admin/EditMovie" asp-route-id="@p.Movie_ID">Edit</a></td>
+                        <td><a asp-page="/Admin/MovieDelete" asp-route-id="@p.Movie_ID">Delete</a></td>
+
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+
+    </table>
+
+
+    <h1 class="display-4">Shows</h1>
+
+
+    <table class="table table-bordered table-sm table-striped">
+
+        <thead>
+            <!-- table head -->
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Title</th>
+                <th>Director</th>
+                <th>Seasons</th>
+                <th>Episodes</th>
+                <th>Rating</th>
+                <th>Opinion</th>
+                <th>Email</th>
+                <th>Watched</th>
+                <th>Date Watched</th>
+                <th colspan="2">Admin</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- table body -->
+            <!-- if there is no model, display 'No Model' -->
+            @if (Model == null)
+            {
+                <tr>
+                    <td colspan="7" class="text-center">No Model</td>
+                </tr>
+            }
+            else
+            {
+
+                @foreach (var g in Model.shw)
+                {
+                    <tr>
+                        <td>@g.Show_ID</td>
+                        <td>@g.User_Name</td>
+                        <td>@g.Show_Title</td>
+                        <td>@g.Show_Director</td>
+                        <td>@g.Show_Seasons</td>
+                        <td>@g.Show_Episodes</td>
+                        <td>@g.Show_Rating </td>
+                        <td>@g.Show_Opinion</td>
+                        <td>@g.Show_Email</td>
+
+                        @if (g.Show_Watched == true)
+                        {
+                            <td>Yes</td>
+                        }
+                        else
+                        {
+                            <td>No</td>
+                        }
+
+                        <td>@g.Show_DateWatched</td>
+
+                        <td><a asp-page="/Admin/EditShow" asp-route-id="@g.Show_ID">Edit</a></td>
+                        <td><a asp-page="/Admin/ShowDelete" asp-route-id="@g.Show_ID">Delete</a></td>
+
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+
+    </table>
+
+</div>

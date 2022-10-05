@@ -1,0 +1,71 @@
+﻿@page
+@model Se256_RazorExam_AndrewDiClerico.Pages.Admin.ControlPanelModel
+@{
+    ViewData["Title"] = "Control Panel";
+}
+
+<div class="text-center">
+    <h1 class="display-2">Admin Control Panel</h1>
+    <h2 class="display-4">Cemetary Plot Information</h2>
+
+    <table class="table-bordered table-striped">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Plot Number</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Date Of Birth</th>
+                <th>Date Of Death</th>
+                <th>Stone Condition</th>
+                <th>Plot Condition</th>
+                <th>Attention Needed?</th>
+                <th>Reviewer Email</th>
+                <th>Date Of Last Reviewed</th>
+                <th colspan="2">ADMIN</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model == null)
+            {
+                <tr>
+                    <td colspan="12" class="text-center">No Data</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var r in Model.recs)
+                {
+                    <tr>
+                        <td>@r.PlotID</td>
+                        <td>@r.PlotNumber</td>
+                        <td>@r.FirstName</td>
+                        <td>@r.MiddleName</td>
+                        <td>@r.LastName</td>
+                        <td>@r.DOB</td>
+                        <td>@r.DOD</td>
+                        <td>@r.StoneCondition</td>
+                        <td>@r.PlotCondition</td>
+                        @if (r.NeedsAttention == true)
+                        {
+                            <td>Yes</td>
+                        }
+                        else if (r.NeedsAttention == false)
+                        {
+                            <td>No</td>
+                        }
+                        <td>@r.RevEmail</td>
+                        <td>@r.DOLastRev</td>
+                        <td><a asp-page="/Admin/Edit" asp-route-id="@r.PlotID">Edit</a></td>
+                        <td><a asp-page="/Admin/Delete" asp-route-id="@r.PlotID">Delete</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+
+    </table>
+</div>

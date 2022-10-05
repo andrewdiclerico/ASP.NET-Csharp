@@ -1,0 +1,49 @@
+﻿@page
+@model SE256_RazorLab_AndrewDiClerico.Pages.Admin.IndexModel
+@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<div style="text-align:center;">
+
+    <h1>Admin Login</h1>
+
+    <form method="post">
+
+        <div class="form-group">
+            <label asp-for="bAdmin.BLAdmin_Email"></label>
+            <input asp-for="bAdmin.BLAdmin_Email" type="text" placeholder="Username" required />
+            <br />
+            <span asp-validation-for="bAdmin.BLAdmin_Email"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="bAdmin.BLAdmin_PW"></label>
+            <input asp-for="bAdmin.BLAdmin_PW" type="password" placeholder="Password" />
+            <br />
+            <span asp-validation-for="bAdmin.BLAdmin_PW"></span>
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+
+    </form>
+
+</div>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+@{ 
+    if(Model.bAdmin != null && Model.bAdmin.Feedback != null)
+    {
+        <div style="text-align:center;">
+
+            <h1>Results</h1>
+            <p>@Model.bAdmin.Feedback</p>
+
+        </div>
+    }
+
+
+}

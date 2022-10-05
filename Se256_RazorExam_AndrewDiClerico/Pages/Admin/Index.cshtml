@@ -1,0 +1,42 @@
+﻿@page
+@model Se256_RazorExam_AndrewDiClerico.Pages.Admin.IndexModel
+@{
+    ViewData["Title"] = "Admin Home";
+}
+
+<div style="text-align:center;">
+
+    <h1>Admin Login</h1>
+
+    <form method="post">
+
+        <div class="form-group">
+            <label asp-for="tAdmin.Admin_Email">Username</label>
+            <input asp-for="tAdmin.Admin_Email" type="text" class="form-control" placeholder="Username" />
+            <span asp-validation-for="tAdmin.Admin_Email" class="text-danger"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <label asp-for="tAdmin.Admin_PW">Password</label>
+            <input asp-for="tAdmin.Admin_PW" type="password" class="form-control" placeholder="Password" />
+            <span asp-validation-for="tAdmin.Admin_PW" class="text-danger"></span>
+        </div>
+
+        <br />
+
+        <button type="submit">Login</button>
+
+    </form>
+
+
+</div>
+
+@{ 
+    if (Model.tAdmin != null && Model.tAdmin.Feedback != null)
+    {
+        <h1 style="text-align:center;">Results</h1>
+        <p style="text-align:center;">@Model.tAdmin.Feedback</p>
+    }
+}

@@ -1,0 +1,57 @@
+﻿@page
+@model Se256_RazorExam_AndrewDiClerico.Pages.Admin.DeleteModel
+@{
+    ViewData["Title"] = "Delete Plot";
+}
+
+<div style="text-align:center;">
+    <h1>Delete Plot</h1>
+    <h2>Are you sure you want to delete this plot?</h2>
+
+    <hr />
+
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.tPlot.PlotNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tPlot.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tPlot.MiddleName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tPlot.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tPlot.DOB)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tPlot.DOD)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tPlot.StoneCondition)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tPlot.PlotCondition)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tPlot.NeedsAttention)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tPlot.RevEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tPlot.DOLastRev)
+        </dt>
+        
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="tPlot.PlotID" />
+        <input type="submit" value="Delete" class="btn lnk lnk:hover" /> |
+        <a style="padding-left:15px;" asp-page="/Admin/ControlPanel">Back to Control Panel</a>
+    </form>
+
+
+</div>

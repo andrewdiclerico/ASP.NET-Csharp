@@ -1,0 +1,59 @@
+﻿@page
+@model SE256_RazorLab_AndrewDiClerico.Pages.Admin.ShowDeleteModel
+@{
+    ViewData["Title"] = "Delete Show";
+}
+
+<div style="text-align:center;">
+    
+    <h1>Delete Show</h1>
+
+    <h2>Are you sure you want to delete?</h2>
+
+    <div style="text-align:center;">
+        <h3>Show</h3>
+
+        <hr />
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.show.Show_Title)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.show.Show_Director)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.show.Show_Seasons)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.show.Show_Episodes)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.show.Show_Rating)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.show.Show_Opinion)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.show.Show_Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.show.Show_Watched)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.show.Show_DateWatched)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.show.Show_ID)
+            </dd>
+        </dl>
+
+        <form method="post">
+            <input type="hidden" asp-for="show.Show_ID" />
+            <input type="submit" value="Delete" class="btn" /> |
+            <a asp-page="/Admin/BL_ControlPanel">Back to Control Panel</a>
+        </form>
+
+    </div>
+
+</div>

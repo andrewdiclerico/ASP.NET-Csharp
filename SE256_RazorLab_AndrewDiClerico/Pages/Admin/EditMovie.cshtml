@@ -1,0 +1,108 @@
+﻿@page
+@model SE256_RazorLab_AndrewDiClerico.Pages.Admin.EditMovieModel
+@{
+    ViewData["Title"] = "Edit Movie";
+}
+
+
+<div style="background-color:#C7BEA2;">
+
+    <h1 style="text-align: center; color: #AAA492;">Update Movie</h1>
+
+    <br />
+
+    <form method="post" style="background-color:#AAA492; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tMovie.Movie_Title">Movie Title:</label>
+            <input asp-for="tMovie.Movie_Title" type="text" class="form-control" placeholder="Movie Title" />
+            <span asp-validation-for="tMovie.Movie_Title"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tMovie.Movie_Director">Movie Director:</label>
+            <input asp-for="tMovie.Movie_Director" type="text" class="form-control" placeholder="Movie Director" />
+            <span asp-validation-for="tMovie.Movie_Director"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tMovie.Movie_Length">Movie Length (<b>Minutes</b>):</label>
+            <input asp-for="tMovie.Movie_Length" type="number" class="form-control" placeholder="Movie Length (Minutes)" />
+            <span asp-validation-for="tMovie.Movie_Length"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tMovie.Movie_Rating">Movie Rating (<b>0 - 10</b>):</label>
+            <input asp-for="tMovie.Movie_Rating" type="number" class="form-control" placeholder="5.0" step="e.g. 0.5" min="0" max="10" />
+            <span asp-validation-for="tMovie.Movie_Rating"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tMovie.Movie_Opinion">Opinion Of The Movie:</label>
+            <input asp-for="tMovie.Movie_Opinion" type="text" class="form-control" placeholder="Your opinion of the movie" />
+            <span asp-validation-for="tMovie.Movie_Opinion"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tMovie.Movie_Email">Your E-Mail Address:</label>
+            <input asp-for="tMovie.Movie_Email" type="text" class="form-control" placeholder="Your E-Mail Address" />
+            <span asp-validation-for="tMovie.Movie_Email"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tMovie.Movie_Watched">Have you watched this movie? :</label>
+            <input asp-for="tMovie.Movie_Watched" type="checkbox" class="form-control" />
+            <span asp-validation-for="tMovie.Movie_Watched"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tMovie.Movie_DateWatched">Date Watched :</label>
+            <input asp-for="tMovie.Movie_DateWatched" type="date" class="form-control" />
+            <span asp-validation-for="tMovie.Movie_DateWatched"></span>
+        </div>
+
+        <br />
+
+        <div style="display:flex; justify-content:center;">
+            <input asp-for="tMovie.Movie_ID" type="hidden" />
+
+            <button type="submit" style="align-content:center;">Update Movie</button>
+        </div>
+
+    </form>
+
+    <br />
+    <br />
+
+</div>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+@{ 
+    if (Model.tMovie != null && Model.tMovie.Feedback != null)
+            {
+                <div style="text-align:center;">
+                    <h1>Results</h1>
+
+                    <p>@Model.tMovie.Feedback</p>
+                </div>
+            }
+}

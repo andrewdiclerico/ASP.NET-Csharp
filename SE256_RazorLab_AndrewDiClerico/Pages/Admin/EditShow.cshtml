@@ -1,0 +1,116 @@
+﻿@page
+@model SE256_RazorLab_AndrewDiClerico.Pages.Admin.EditShowModel
+@{
+    ViewData["Title"] = "Edit Show";
+}
+
+
+
+<div style="background-color:#C7BEA2;">
+
+    <h1 style="text-align: center; color: #AAA492;">Update Show</h1>
+
+    <br />
+
+    <form method="POST" style="background-color:#AAA492; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tShow.Show_Title">Show Title:</label>
+            <input asp-for="tShow.Show_Title" type="text" class="form-control" placeholder="Show Title" />
+            <span asp-validation-for="tShow.Show_Title"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tShow.Show_Director">Show Director:</label>
+            <input asp-for="tShow.Show_Director" type="text" class="form-control" placeholder="Show Director" />
+            <span asp-validation-for="tShow.Show_Director"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tShow.Show_Seasons">Seasons:</label>
+            <input asp-for="tShow.Show_Seasons" type="number" class="form-control" placeholder="Seasons" />
+            <span asp-validation-for="tShow.Show_Seasons"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tShow.Show_Episodes">Episodes:</label>
+            <input asp-for="tShow.Show_Episodes" type="number" class="form-control" placeholder="Episodes" />
+            <span asp-validation-for="tShow.Show_Episodes"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tShow.Show_Rating">Show Rating (<b>0 - 10</b>) :</label>
+            <input asp-for="tShow.Show_Rating" type="number" class="form-control" placeholder="e.g. 5" min="0" max="10" />
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tShow.Show_Opinion">Your Opinion:</label>
+            <input asp-for="tShow.Show_Opinion" type="text" class="form-control" placeholder="Your opinion of the show" min="1" max="10" />
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tShow.Show_Email">Your E-Mail Address:</label>
+            <input asp-for="tShow.Show_Email" type="text" class="form-control" placeholder="Your E-Mail Address" />
+            <span asp-validation-for="tShow.Show_Email"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tShow.Show_Watched">Have you watched this show? :</label>
+            <input asp-for="tShow.Show_Watched" type="checkbox" class="form-control" />
+            <span asp-validation-for="tShow.Show_Watched"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group" style="background-color:#C7BEA2; margin-left:5%; margin-right:5%; border-top:10px; padding-bottom:5%;">
+            <label asp-for="tShow.Show_DateWatched">Date Watched :</label>
+            <input asp-for="tShow.Show_DateWatched" type="date" class="form-control" />
+        </div>
+
+        <br />
+
+        <br />
+
+        <div class="form-group" style="display:flex; justify-content:center;">
+            <input asp-for="tShow.Show_ID" type="hidden" />
+
+            <button type="submit" style="align-content:center;">Update Show</button>
+        </div>
+
+    </form>
+
+    <br />
+    <br />
+
+</div>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+@{
+    if (Model.tShow != null && Model.tShow.Feedback != null)
+    {
+        <div style="text-align:center;">
+            <h1>Results</h1>
+
+            <p>@Model.tShow.Feedback</p>
+        </div>
+    }
+}

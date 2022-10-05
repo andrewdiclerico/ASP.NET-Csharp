@@ -1,0 +1,57 @@
+﻿@page
+@model SE256_RazorLab_AndrewDiClerico.Pages.Admin.MovieDeleteModel
+@{
+    ViewData["Title"] = "Delete Movie";
+}
+
+<div style="text-align:center;">
+
+    <h1>Delete Movie</h1>
+
+    <h2>Are you sure you want to delete?</h2>
+
+    <div style="text-align:center;">
+        <h3>Movie</h3>
+
+        <hr />
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.movie.Movie_Title)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.movie.Movie_Director)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.movie.Movie_Length)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.movie.Movie_Rating)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.movie.Movie_Opinion)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.movie.Movie_Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.movie.Movie_Watched)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.movie.Movie_DateWatched)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.movie.Movie_ID)
+            </dt>
+        </dl>
+
+        <form method="post">
+            <input type="hidden" asp-for="movie.Movie_ID" />
+            <input type="submit" value="Delete" class="btn" /> |
+            <a asp-page="/Admin/BL_ControlPanel">Back to Control Panel</a>
+        </form>
+
+
+    </div>
+
+</div>
